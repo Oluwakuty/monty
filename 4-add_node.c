@@ -1,48 +1,48 @@
 #include "monty.h"
 
 /**
- * addnode - add node to the head stack
- * @head: head of the stack
- * @n: new_value
+ * addnode - append node to the head stack
+ * @top: top of the stack
+ * @m: new_value
  * Return: no return
 */
 
-void addnode(stack_t **head, int n)
+void addnode(stack_t **top, int m)
 {
 
 	stack_t *new_node, *aux;
 
-	aux = *head;
+	aux = *top;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{ printf("Error\n");
 		exit(0); }
 	if (aux)
 		aux->prev = new_node;
-	new_node->n = n;
-	new_node->next = *head;
+	new_node->n = m;
+	new_node->next = *top;
 	new_node->prev = NULL;
-	*head = new_node;
+	*top = new_node;
 }
 
 /**
- * addqueue - add node to the tail stack
- * @n: new_value
- * @head: head of the stack
+ * addqueue - append node to the tail stack
+ * @top: top of the stac
+ * @m: new_value
  * Return: no return
 */
 
-void addqueue(stack_t **head, int n)
+void addqueue(stack_t **top, int m)
 {
 	stack_t *new_node, *aux;
 
-	aux = *head;
+	aux = *top;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		printf("Error\n");
 	}
-	new_node->n = n;
+	new_node->n = m;
 	new_node->next = NULL;
 	if (aux)
 	{
@@ -51,7 +51,7 @@ void addqueue(stack_t **head, int n)
 	}
 	if (!aux)
 	{
-		*head = new_node;
+		*top = new_node;
 		new_node->prev = NULL;
 	}
 	else
@@ -63,16 +63,16 @@ void addqueue(stack_t **head, int n)
 
 /**
 * free_stack - frees a doubly linked list
-* @head: head of the stack
+* @top: top of the stack
 */
 
-void free_stack(stack_t *head)
+void free_stack(stack_t *top)
 {
 	stack_t *aux;
 
-	for (aux = head; head; head = aux)
+	for (aux = top; top; top = aux)
 	{
-		aux = head->next;
-		free(head);
+		aux = top->next;
+		free(top);
 	}
 }

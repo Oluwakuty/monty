@@ -59,16 +59,16 @@ extern bus_t bus;
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
-void f_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-void f_pint(stack_t **head, unsigned int number);
+void push(stack_t **top, unsigned int count);
+void pall(stack_t **top, unsigned int count);
+void pint(stack_t **top, unsigned int count);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
-void free_stack(stack_t *head);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-void f_add(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
-void addnode(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
+void free_stack(stack_t *top);
+void pop(stack_t **top, unsigned int count);
+void swap(stack_t **top, unsigned int count);
+void add(stack_t **top, unsigned int count);
+void nop(stack_t **top, unsigned int count);
+void addnode(stack_t **top, int m);
+void addqueue(stack_t **top, int m);
 
 #endif
