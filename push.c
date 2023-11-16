@@ -45,3 +45,35 @@ void f_push(stack_t **head, unsigned int counter)
 	else
 		addqueue(head, m);
 }
+
+
+/**
+ * f_pall - prints the stack
+ * @head: stack head
+ * @counter: no used
+ * Return: no return
+*/
+
+void f_pall(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	(void)counter;
+
+	for (h = *head; h != NULL; h = h->next)
+	{
+		printf("%d\n", h->n);
+	}
+}
+
+
+/**
+  *f_nop- nothing
+  *@head: stack head
+  *@counter: line_number
+  *Return: no return
+ */
+void f_nop(stack_t **head, unsigned int counter)
+{
+	(void) counter;
+	(void) head;
+}
