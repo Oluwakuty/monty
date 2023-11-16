@@ -58,3 +58,19 @@ void addqueue(stack_t **head, int n)
 		new_node->prev = aux;
 	}
 }
+
+/**
+* free_stack - frees a doubly linked list
+* @head: head of the stack
+*/
+
+void free_stack(stack_t *head)
+{
+	stack_t *aux;
+
+	for (aux = head; head; head = aux)
+	{
+		aux = head->next;
+		free(head);
+	}
+}
